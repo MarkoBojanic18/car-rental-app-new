@@ -71,6 +71,15 @@ export class HomeDetailsPage implements OnInit {
     this.addresses = [];
   }
 
+  //provera da li je selektovana adresa
+  checkAddress(){
+    if(this.selectedAddress == null){
+      return false;
+    }
+
+    return true;
+  }
+
 
   
 

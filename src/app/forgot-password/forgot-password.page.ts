@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -20,6 +21,10 @@ export class ForgotPasswordPage implements OnInit {
 
   changeType(){
     this.type = !this.type;
+  }
+
+  resetForm(form:NgForm){
+    console.log(form);
   }
 
 }

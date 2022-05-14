@@ -10,7 +10,11 @@
     Hello&nbsp;<strong> Marko!</strong>
 
 
-    <ion-icon name="log-out" slot="end" color="dark"></ion-icon>
+    <ion-button color="light" fill="clear" slot="end" (click)="logOut()">
+      <ion-icon name="log-out" slot="end" color="dark" size="large"></ion-icon>
+    </ion-button>
+
+
   </ion-item>
   <ion-item lines="none" class="search">
     <div class="ion-padding-start ion-padding-bottom">
@@ -20,7 +24,7 @@
 
       <ion-row class="ion-align-items-center">
         <ion-col size="10" offset="1">
-          <ion-searchbar placeholder="Oman, Muscat" searchIcon="location-outline"></ion-searchbar>
+          <ion-searchbar placeholder="Model, Mark" searchIcon="car-sport"></ion-searchbar>
         </ion-col>
         <ion-col size="1">
           <ion-button color="light" fill="clear">
@@ -50,8 +54,7 @@
 
 
     <ul class="listOfCars">
-      <app-home-element *ngFor="let car of cars" [car]="car">
-      </app-home-element>
+      <app-home-element *ngFor="let car of cars" [car]="car"></app-home-element>
     </ul>
 
 

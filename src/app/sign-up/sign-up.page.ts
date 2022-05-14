@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.page.scss'],
 })
 export class SignUpPage implements OnInit {
+  
   signUp = {
     fullName:"",
     phoneNumber:"",
@@ -22,6 +24,10 @@ export class SignUpPage implements OnInit {
 
   changeType(){
     this.type = !this.type;
+  }
+
+  onSignUp(form:NgForm){
+    console.log(form);
   }
 
 }

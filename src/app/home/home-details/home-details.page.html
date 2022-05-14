@@ -162,8 +162,8 @@
       <ion-row>
         <ion-col offset="" size="12">
           <div style="position: relative;">
-            <ion-searchbar debounce="500" placeholder="Type pick up location" (ionChange)="search($event)"
-              [value]="selectedAddress"></ion-searchbar>
+            <ion-searchbar debounce="500" placeholder="Type pick up location" searchIcon="location-outline"
+              (ionChange)="search($event)" [value]="selectedAddress"></ion-searchbar>
             <div style="position: absolute; width: 100%; z-index: 999;">
               <ion-list lines="none" *ngIf="addresses.length > 0">
                 <ion-item button *ngFor="let address of addresses" (click)="onSelect(address)">
@@ -204,7 +204,9 @@
 
     </ion-item>
 
-    <ion-button type="submit" expand="block" class="submitBtn" size="large">Submit</ion-button>
+    <ion-button type="submit" expand="block" class="submitBtn" [disabled]="!checkAddress()" size="large"
+      routerLink="/details">Submit
+    </ion-button>
   </div>
 
 
