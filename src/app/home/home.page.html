@@ -49,9 +49,10 @@
     </div>
 
 
-    <ion-list>
-      <app-home-element *ngFor="let car of cars" [car]="car"></app-home-element>
-    </ion-list>
+    <ul class="listOfCars">
+      <app-home-element *ngFor="let car of cars" [car]="car">
+      </app-home-element>
+    </ul>
 
 
 

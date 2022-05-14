@@ -14,8 +14,8 @@
       <ion-card-content>
         <ion-row>
           <ion-col size="12" class="ion-text-center ion-margin-bottom">
-            <ion-card-title>{{car.marka_auta}}</ion-card-title>
-            <ion-card-subtitle>2 doors | Sport</ion-card-subtitle>
+            <ion-card-title>{{car.marka_auta}} {{car.car_model}} {{car.car_made}}</ion-card-title>
+            <ion-card-subtitle>{{car.car_door}} doors | {{car.car_type}}</ion-card-subtitle>
             <ion-card-subtitle>
               <ion-icon name="star" color="warning"></ion-icon>
               <ion-icon name="star" color="warning"></ion-icon>
@@ -29,13 +29,13 @@
           <ion-col size="3.5" class="ion-text-right">
             <ion-button fill="clear" color="dark">
               <ion-icon class="heart_green" slot="icon-only" name="heart"></ion-icon>
-              <span class="likeNumber"> 0</span>
+              <span class="likeNumber"> {{car.car_likes}}</span>
             </ion-button>
           </ion-col>
           <ion-col size="3.5" class="ion-text-left">
             <ion-button fill="clear" color="dark">
               <ion-icon name="heart-dislike" slot="icon-only" class="heart_red"></ion-icon>
-              <span class="dislikeNumber"> 0</span>
+              <span class="dislikeNumber"> {{car.car_dislikes}}</span>
             </ion-button>
           </ion-col>
           <ion-col size="5" class="ion-float-left">
@@ -65,7 +65,7 @@
 
         <ion-row>
           <ion-col size="4" class="ion-text-center">
-            <ion-label>60$/day</ion-label>
+            <ion-label>{{car.car_price}} $ / day</ion-label>
           </ion-col>
           <ion-col size="4" class="ion-text-center">
             <ion-label>+381/640254606</ion-label>
@@ -81,55 +81,55 @@
           </ion-row>
           <ion-row>
             <ion-col>Made</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_made}}. year</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Crossed</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_crossed}} km</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Fuel</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_fuel}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Cubic capacity</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_cubic_capacity}} cm<sup>3</sup></ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Engine power</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_engine_power}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Transmission</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_transmission}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Emission class</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_emission_class}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Climate</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_climate}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Door</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_door}}/5 doors</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Car body</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_body}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Seats</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_seats}} seats</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Color</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_color}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Drive</ion-col>
-            <ion-col>DATA</ion-col>
+            <ion-col>{{car.car_drive}}</ion-col>
           </ion-row>
         </ion-grid>
 
@@ -145,68 +145,65 @@
   </div>
 
 
-  <ion-item (click)="showPicker = !showPicker" class="datePicker">
-    <ion-icon icon="calendar-outline" slot="start"></ion-icon>
-    <ion-label>Choose date</ion-label>
-    <ion-text slot="end">
-      {{formattedString}}
-    </ion-text>
-  </ion-item>
-  <ion-datetime *ngIf="showPicker" size="cover" [value]="dateValue" #datetime (ionChange)="dateChanged(datetime.value)"
-    showDefaultButtons="true" (ionCancel)="showPicker = false;">
+  <div class="bellowSection" *ngIf="!car.car_reserved">
+    <ion-item (click)="showPicker = !showPicker" class="datePicker">
+      <ion-icon icon="calendar-outline" slot="start"></ion-icon>
+      <ion-label>Choose date</ion-label>
+      <ion-text slot="end">
+        {{formattedString}}
+      </ion-text>
+    </ion-item>
+    <ion-datetime *ngIf="showPicker" size="cover" [value]="dateValue" #datetime
+      (ionChange)="dateChanged(datetime.value)" showDefaultButtons="true" (ionCancel)="showPicker = false;">
 
-  </ion-datetime>
+    </ion-datetime>
 
-  <ion-grid class="location">
-    <ion-row>
-      <ion-col offset="" size="12">
-        <div style="position: relative;">
-          <ion-searchbar debounce="500" placeholder="Type pick up location" (ionChange)="search($event)"
-            [value]="selectedAddress"></ion-searchbar>
-          <div style="position: absolute; width: 100%; z-index: 999;">
-            <ion-list lines="none" *ngIf="addresses.length > 0">
-              <ion-item button *ngFor="let address of addresses" (click)="onSelect(address)">
-                <ion-icon name="home" style="margin-right: 10px;"></ion-icon>
-                {{address}}
-              </ion-item>
-            </ion-list>
+    <ion-grid class="location">
+      <ion-row>
+        <ion-col offset="" size="12">
+          <div style="position: relative;">
+            <ion-searchbar debounce="500" placeholder="Type pick up location" (ionChange)="search($event)"
+              [value]="selectedAddress"></ion-searchbar>
+            <div style="position: absolute; width: 100%; z-index: 999;">
+              <ion-list lines="none" *ngIf="addresses.length > 0">
+                <ion-item button *ngFor="let address of addresses" (click)="onSelect(address)">
+                  <ion-icon name="home" style="margin-right: 10px;"></ion-icon>
+                  {{address}}
+                </ion-item>
+              </ion-list>
+            </div>
           </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
 
-  <ion-item class="numberOfDays" lines="none">
-    <ion-row class="ion-margin-bottom">
-      <ion-col size="12" class="ion-text-center ion-margin-bottom ion-margin-top">
-        <span>Choose number of days</span>
-      </ion-col>
+    <ion-item class="numberOfDays" lines="none">
+      <ion-row class="ion-margin-bottom">
+        <ion-col size="12" class="ion-text-center ion-margin-bottom ion-margin-top">
+          <span>Choose number of days</span>
+        </ion-col>
 
-      <ion-col size="4" class="ion-text-right">
-        <ion-button fill="clear" (click)="decrementDays()" color="dark">
-          <ion-icon name="remove-circle" slot="start" style="padding-right: 17%;padding-left: 17%;">
-          </ion-icon>
-        </ion-button>
+        <ion-col size="4" class="ion-text-right">
+          <ion-button fill="clear" (click)="decrementDays()" color="dark">
+            <ion-icon name="remove-circle" slot="start" style="padding-right: 17%;padding-left: 17%;">
+            </ion-icon>
+          </ion-button>
 
-      </ion-col>
-      <ion-col size="4" class="ion-text-center">
-        {{currentNumber}}
-      </ion-col>
-      <ion-col size="4" class="ion-float-left">
-        <ion-button fill="clear" (click)="incrementDays()" color="dark">
-          <ion-icon name="add-circle" slot="end" style="padding-right: 35%;padding-left: 35%;">
-          </ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          {{currentNumber}}
+        </ion-col>
+        <ion-col size="4" class="ion-float-left">
+          <ion-button fill="clear" (click)="incrementDays()" color="dark">
+            <ion-icon name="add-circle" slot="end" style="padding-right: 35%;padding-left: 35%;">
+            </ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
 
-
-
-
-
-  </ion-item>
-
+    </ion-item>
+  </div>
 
 
 </ion-content>
