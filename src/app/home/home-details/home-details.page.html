@@ -157,6 +157,56 @@
 
   </ion-datetime>
 
+  <ion-grid class="location">
+    <ion-row>
+      <ion-col offset="" size="12">
+        <div style="position: relative;">
+          <ion-searchbar debounce="500" placeholder="Type pick up location" (ionChange)="search($event)"
+            [value]="selectedAddress"></ion-searchbar>
+          <div style="position: absolute; width: 100%; z-index: 999;">
+            <ion-list lines="none" *ngIf="addresses.length > 0">
+              <ion-item button *ngFor="let address of addresses" (click)="onSelect(address)">
+                <ion-icon name="home" style="margin-right: 10px;"></ion-icon>
+                {{address}}
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-item class="numberOfDays" lines="none">
+    <ion-row class="ion-margin-bottom">
+      <ion-col size="12" class="ion-text-center ion-margin-bottom ion-margin-top">
+        <span>Choose number of days</span>
+      </ion-col>
+
+      <ion-col size="4" class="ion-text-right">
+        <ion-button fill="clear" (click)="decrementDays()" color="dark">
+          <ion-icon name="remove-circle" slot="start" style="padding-right: 17%;padding-left: 17%;">
+          </ion-icon>
+        </ion-button>
+
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">
+        {{currentNumber}}
+      </ion-col>
+      <ion-col size="4" class="ion-float-left">
+        <ion-button fill="clear" (click)="incrementDays()" color="dark">
+          <ion-icon name="add-circle" slot="end" style="padding-right: 35%;padding-left: 35%;">
+          </ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+
+
+
+  </ion-item>
+
 
 
 </ion-content>

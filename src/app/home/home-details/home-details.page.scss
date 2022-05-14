@@ -92,6 +92,26 @@ ion-datetime{
     border-radius: 0px 0px 10px 10px;
 }
 
+.location{
+border-radius: 10px;
+}
+
+
+.numberOfDays{
+  margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    ion-icon:last-of-type {
+        background: #316dd0;
+        color: #FFFFFF;
+        padding: 4px;
+        border-radius: 12px;
+        width: 100px;
+    }
+}
+
 
 
 
