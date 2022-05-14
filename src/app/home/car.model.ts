@@ -16,8 +16,8 @@ export interface Car {
     car_color:string;
     car_drive:string;
     car_accessories:string;
-    car_likes: string;
-    car_dislikes:string;
+    car_likes: number;
+    car_dislikes:number;
     car_reserved:boolean;
     car_owner_id:string;
     car_price:string;

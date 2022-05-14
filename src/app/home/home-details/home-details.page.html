@@ -27,13 +27,13 @@
           </ion-col>
 
           <ion-col size="3.5" class="ion-text-right">
-            <ion-button fill="clear" color="dark">
+            <ion-button fill="clear" (click)="incrementLikes()" color="dark">
               <ion-icon class="heart_green" slot="icon-only" name="heart"></ion-icon>
               <span class="likeNumber"> {{car.car_likes}}</span>
             </ion-button>
           </ion-col>
           <ion-col size="3.5" class="ion-text-left">
-            <ion-button fill="clear" color="dark">
+            <ion-button fill="clear" (click)="incrementDisLikes()" color="dark">
               <ion-icon name="heart-dislike" slot="icon-only" class="heart_red"></ion-icon>
               <span class="dislikeNumber"> {{car.car_dislikes}}</span>
             </ion-button>
@@ -203,6 +203,8 @@
       </ion-row>
 
     </ion-item>
+
+    <ion-button type="submit" expand="block" class="submitBtn" size="large">Submit</ion-button>
   </div>
 
 
