@@ -1,0 +1,162 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+
+    <ion-card class="ion-margin-bottom">
+      <ion-img [src]="car.slika_url"></ion-img>
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="12" class="ion-text-center ion-margin-bottom">
+            <ion-card-title>{{car.marka_auta}}</ion-card-title>
+            <ion-card-subtitle>2 doors | Sport</ion-card-subtitle>
+            <ion-card-subtitle>
+              <ion-icon name="star" color="warning"></ion-icon>
+              <ion-icon name="star" color="warning"></ion-icon>
+              <ion-icon name="star" color="warning"></ion-icon>
+              <ion-icon name="star" color="warning"></ion-icon>
+              <ion-icon name="star-outline" color="warning"></ion-icon>
+
+            </ion-card-subtitle>
+          </ion-col>
+
+          <ion-col size="3.5" class="ion-text-right">
+            <ion-button fill="clear" color="dark">
+              <ion-icon class="heart_green" slot="icon-only" name="heart"></ion-icon>
+              <span class="likeNumber"> 0</span>
+            </ion-button>
+          </ion-col>
+          <ion-col size="3.5" class="ion-text-left">
+            <ion-button fill="clear" color="dark">
+              <ion-icon name="heart-dislike" slot="icon-only" class="heart_red"></ion-icon>
+              <span class="dislikeNumber"> 0</span>
+            </ion-button>
+          </ion-col>
+          <ion-col size="5" class="ion-float-left">
+            <ion-button class="btn_save" (click)="zipped = !zipped">
+              <ion-icon [name]="zipped ? 'bookmark':'bookmark-outline'"></ion-icon>
+              <span>&nbsp;Save car</span>
+            </ion-button>
+          </ion-col>
+
+
+          <ion-col size="4" class="ion-text-center">
+            <ion-button fill="clear" color="dark">
+              <ion-icon slot="icon-only" name="cash-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center">
+            <ion-button fill="clear" color="dark">
+              <ion-icon slot="icon-only" name="call-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center">
+            <ion-button fill="clear" color="dark">
+              <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="4" class="ion-text-center">
+            <ion-label>60$/day</ion-label>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center">
+            <ion-label>+381/640254606</ion-label>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center">
+            <ion-label>Marko Bojanic</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-grid class="ion-margin">
+          <ion-row>
+            <ion-col class="firstRow">INFORMATION</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Made</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Crossed</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Fuel</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Cubic capacity</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Engine power</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Transmission</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Emission class</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Climate</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Door</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Car body</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Seats</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Color</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Drive</ion-col>
+            <ion-col>DATA</ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <div class="accessories" style="color: white;">
+          <br>
+          <ion-title>Accessories</ion-title>
+          <ul style="font-size: 20px;margin-left: 15px; margin-top: 8px;">
+            <li>sfe</li>
+          </ul>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+  <ion-item (click)="showPicker = !showPicker" class="datePicker">
+    <ion-icon icon="calendar-outline" slot="start"></ion-icon>
+    <ion-label>Choose date</ion-label>
+    <ion-text slot="end">
+      {{formattedString}}
+    </ion-text>
+  </ion-item>
+  <ion-datetime *ngIf="showPicker" size="cover" [value]="dateValue" #datetime (ionChange)="dateChanged(datetime.value)"
+    showDefaultButtons="true" (ionCancel)="showPicker = false;">
+
+  </ion-datetime>
+
+
+
+</ion-content>
