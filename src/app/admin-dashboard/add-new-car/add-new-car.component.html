@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add new car</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="registration-container">
+    <div class="registration-header">
+      <ion-title>New car form</ion-title>
+      <ion-icon name="car-sport" slot="end" size="large"></ion-icon>
+      <span class="divider"></span>
+    </div>
+    <div class="registration-body">
+      <form #f="ngForm" (ngSubmit)="onAddCar()">
+        <div class="registration-box">
+          <div class="input-box">
+            <ion-label for="">Mark of the car</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter mark of the car" ngModel name="car_mark"
+              required>
+            </ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Model of the car</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter model of the car" ngModel name="car_model"
+              required>
+            </ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car made</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the year of the car" ngModel name="car_made"
+              required>
+            </ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car crossed</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the mileage of the car" ngModel
+              name="car_crossed" required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car fuel type</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the type of fuel" ngModel name="car_fuel"
+              required>
+            </ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car cubic capacity</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter car cubic capacity" ngModel
+              name="car_cubic_capacity" required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car engine power</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the car engine power" ngModel
+              name="car_engine_power" required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car transmission</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the type of car transmission" ngModel
+              name="car_transmission" required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car emission class</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the car emission class" ngModel
+              name="car_emission_class" required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car climate</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the car climate information" ngModel
+              name="car_climate" required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car doors</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter how many doors the car has" ngModel
+              name="car_doors" required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car body</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the type of car body" ngModel name="car_body"
+              required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car seats</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter how many seats the car has" ngModel
+              name="car_seats" required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car color</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the color of the car" ngModel name="car_color"
+              required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car drive</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the car drive type" ngModel name="car_drive"
+              required> </ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car price</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the car price" ngModel name="car_price"
+              required>
+            </ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car type</ion-label>
+            <ion-input type="text" class="input-field" placeholder="Enter the type of the car" ngModel name="car_type"
+              required></ion-input>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Car image</ion-label>
+            <input type="file" class="special" ngModel name="car_image" required>
+          </div>
+          <div class="input-box">
+            <ion-label for="">Accessories</ion-label>
+            <ion-textarea type="text" class="input-field" placeholder="Write Accessories which car has" ngModel
+              name="car_accessories">
+            </ion-textarea>
+          </div>
+        </div>
+
+        <ion-button type="Submit" fill="clear" class="btn-register" [disabled]="f.invalid">Submit form</ion-button>
+      </form>
+    </div>
+    <div class="registration-footer">
+      <h3><a href="#"> Sport<span style="color: red; font-weight: 700; font-size: 18px;">Line</span></a></h3>
+    </div>
+  </div>
+</ion-content>
