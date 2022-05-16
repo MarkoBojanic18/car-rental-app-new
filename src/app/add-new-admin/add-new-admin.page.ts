@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -21,7 +23,7 @@ registerForm: FormGroup;
 
   type: boolean = true;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private loadingController: LoadingController, private router: Router) { }
 
   ngOnInit() {
    
@@ -32,6 +34,9 @@ registerForm: FormGroup;
   }
 
   onSignUp(form:NgForm){
+    this.loadingController
+    .create({message: "Loading..."})
+    .then((loadingEl) => {loadingEl.present();
     
 
      this.registerForm = new FormGroup({
@@ -48,7 +53,11 @@ registerForm: FormGroup;
     this.authService.register(this.registerForm.value).subscribe(resData=>{
       console.log('Registracija je uspela');
       console.log(resData);
-    })
+       loadingEl.dismiss();
+      this.router.navigateByUrl('/add-new-admin');
+  })
+    });
+     
   }
 
 }

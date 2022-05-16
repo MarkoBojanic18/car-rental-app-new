@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChildren } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { Car } from './car.model';
 import { CarsService } from './cars.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { BehaviorSubject } from 'rxjs';
+import { User } from '../user.model';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class HomePage implements OnInit {
     this.carsService.getCars().subscribe((cars) =>{
         this.cars = cars;
     });
+
   }
 
   ionViewWillEnter(){

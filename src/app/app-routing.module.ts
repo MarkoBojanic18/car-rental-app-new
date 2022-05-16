@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'add-new-admin',
     loadChildren: () => import('./add-new-admin/add-new-admin.module').then( m => m.AddNewAdminPageModule)
   },
+  {
+    path: 'view-users',
+    loadChildren: () => import('./view-users/view-users.module').then( m => m.ViewUsersPageModule)
+  },
 ];
 
 @NgModule({
