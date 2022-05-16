@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
-
-
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.page.html',
-  styleUrls: ['./sign-up.page.scss'],
+  selector: 'app-add-new-admin',
+  templateUrl: './add-new-admin.page.html',
+  styleUrls: ['./add-new-admin.page.scss'],
 })
-export class SignUpPage implements OnInit {
+export class AddNewAdminPage implements OnInit {
 registerForm: FormGroup;
   
   signUp = {
@@ -18,7 +16,7 @@ registerForm: FormGroup;
     phoneNumber:"",
     email : "",
     password: "",
-    admin: false
+    admin: true
   };
 
   type: boolean = true;

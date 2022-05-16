@@ -42,6 +42,10 @@ const routes: Routes = [
     path: 'view-cars',
     loadChildren: () => import('./view-cars/view-cars.module').then( m => m.ViewCarsPageModule)
   },
+  {
+    path: 'add-new-admin',
+    loadChildren: () => import('./add-new-admin/add-new-admin.module').then( m => m.AddNewAdminPageModule)
+  },
 ];
 
 @NgModule({
