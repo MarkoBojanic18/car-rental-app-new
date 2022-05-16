@@ -24,6 +24,15 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.carsService.getCars().subscribe((cars) =>{
+        this.cars = cars;
+    });
+  }
+
+  ionViewWillEnter(){
+    this.carsService.getCars().subscribe((cars) =>{
+        this.cars = cars;
+    });
   }
 
   logOut(){

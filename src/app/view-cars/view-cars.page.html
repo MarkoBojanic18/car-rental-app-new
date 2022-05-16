@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin-dashboard"></ion-back-button>
+    </ion-buttons>
+
+    <div class="registration-footer" style="text-align: right;">
+      <h3><a href="/view-cars"> Sport<span style="color: red; font-weight: 700; font-size: 18px;">Line</span></a></h3>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ul class="listOfCars">
+    <app-car-element *ngFor="let car of cars" [car]="car"></app-car-element>
+  </ul>
+
+</ion-content>

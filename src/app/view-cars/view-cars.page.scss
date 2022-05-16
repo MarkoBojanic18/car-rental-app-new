@@ -1,0 +1,28 @@
+.registration-container .registration-footer{
+    padding: 20px;
+}
+
+.registration-footer h3{
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.registration-footer a{
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+ul{
+    width: 90%;
+}
+
+li{
+    width: 90%;
+}
+
+ion-content{
+    --background: linear-gradient(to right, #004C99, #0080FF);
+}

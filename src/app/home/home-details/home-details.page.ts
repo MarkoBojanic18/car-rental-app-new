@@ -34,7 +34,9 @@ export class HomeDetailsPage implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap=>{
+      console.log(paramMap.get('carId'));
       this.car = this.carsService.getCar(paramMap.get('carId'));
+      
     });
   }
 

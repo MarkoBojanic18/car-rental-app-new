@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'admin-dashboard',
     loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
   },
+  {
+    path: 'view-cars',
+    loadChildren: () => import('./view-cars/view-cars.module').then( m => m.ViewCarsPageModule)
+  },
 ];
 
 @NgModule({
