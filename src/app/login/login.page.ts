@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
     console.log(this.loginForm.value.name);
     
     console.log(form);
-    this.authService.register(this.loginForm.value).subscribe(resData=>{
+    this.authService.logIn(this.loginForm.value).subscribe(resData=>{
       console.log('Registracija je uspela');
       console.log(resData);
       this.isLoading = false;
