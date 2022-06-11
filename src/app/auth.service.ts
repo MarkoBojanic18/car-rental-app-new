@@ -50,6 +50,30 @@ export class AuthService {
     );
   }
 
+  get userId(){
+      return this._user.asObservable().pipe(
+      map((user)=>{
+        if(user){
+          return user.id;
+        }else{
+          return null;
+        }
+      })
+    );
+  }
+
+  get userName(){
+      return this._user.asObservable().pipe(
+      map((user)=>{
+        if(user){
+          return user.firstname;
+        }else{
+          return null;
+        }
+      })
+    );
+  }
+
 
   register(UserData){
     this.isUserAuthenticated = true;

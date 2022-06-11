@@ -41,7 +41,11 @@ export class LoginPage implements OnInit {
       console.log('Registracija je uspela');
       console.log(resData);
       this.isLoading = false;
-      this.router.navigateByUrl('/home');
+      if(this.login.email === 'markobojanic@gmail.com'){
+        this.router.navigateByUrl('/admin-dashboard');
+      }else{
+        this.router.navigateByUrl('/home');
+      }
     });
   }
 

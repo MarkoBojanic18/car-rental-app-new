@@ -17,18 +17,17 @@ export class HomePage implements OnInit {
   
   cars:Car[];
 
+
   
 
   constructor(private carsService: CarsService,private authService: AuthService,private router:Router) { 
     this.cars = this.carsService.cars;
-    
   }
 
   ngOnInit() {
     this.carsService.getCars().subscribe((cars) =>{
         this.cars = cars;
     });
-
   }
 
   ionViewWillEnter(){
@@ -41,5 +40,7 @@ export class HomePage implements OnInit {
     this.authService.logOut();
     this.router.navigateByUrl('/login');
   }
+
+  
 
 }

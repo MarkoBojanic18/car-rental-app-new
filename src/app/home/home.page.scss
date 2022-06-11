@@ -17,6 +17,7 @@ ion-item {
 
 
 
+
 ion-item:last-of-type {
   div {
     padding-bottom: 20px;
@@ -75,20 +76,17 @@ ion-content {
 }
 
 
-.listOfCars{
-   display: flex;
-    align-items: center;
-    margin-top: 15px;
+
+   
+
+    app-home-element{
+       margin-top: 15px;
     width: 100%;
     margin-bottom: 40px;
     background-color:#f6f6f6;
-
-    app-home-element{
       margin-left: 10px;
     }
     
-  
-}
 
 
 
